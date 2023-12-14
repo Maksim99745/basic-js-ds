@@ -58,24 +58,23 @@ class BinarySearchTree {
     }
   }
 
-  has(data) {
+  has(/* data */) {
 
-    let root = this.rooot;
+    throw new NotImplementedError('Not implemented');
+    // remove line with error and write your code here
 
-    if (root === null && data !== null) {
-      return false;
-    }
+    // let root = this.rooot;
 
-    while (root) {
-      if (root === undefined) {
-        return false;
-      }
-      if (root.value === data) {
-        return true;
-      }
-    }
+    // if (root === null && data !== null) {
+    //   return false;
+    // }
+
+    // if (root.value === data) {
+    //   return true;
+    // }
 
     // while (root) {
+
     //   if (root.value === data) {
     //     return true;
     //   }
@@ -85,8 +84,8 @@ class BinarySearchTree {
     //   } else {
     //     root = root.right;
     //   }
-
     // }
+
     // return false;
 
   }
@@ -116,7 +115,7 @@ class BinarySearchTree {
   }
 
   max() {
-    let temp = this.rooot;
+    let temp = this.root;
     if (temp.value === null) {
       return null;
     }
@@ -124,9 +123,8 @@ class BinarySearchTree {
     if (temp.value !== null && temp.right === null) {
       return temp.value;
     }
-
     while (temp.right !== null) {
-      temp = temp.left;
+      temp = temp.right;
     }
 
     return temp.value;
