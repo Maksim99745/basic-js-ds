@@ -102,32 +102,34 @@ class BinarySearchTree {
   }
 
   min() {
-    let temp = this.rooot;
-    if (temp.value === null) {
-      return null;
-    }
+    throw new NotImplementedError('Not implemented');
+    // let temp = this.rooot;
+    // if (temp.value === null) {
+    //   return null;
+    // }
 
-    while (temp.left !== null) {
-      temp = temp.left;
-    }
+    // while (temp.left !== null) {
+    //   temp = temp.left;
+    // }
 
-    return temp.value;
+    // return temp.value;
   }
 
   max() {
-    let temp = this.root;
-    if (temp.value === null) {
-      return null;
-    }
+    throw new NotImplementedError('Not implemented');
+    // let temp = this.root;
+    // if (temp.value === null) {
+    //   return null;
+    // }
 
-    if (temp.value !== null && temp.right === null) {
-      return temp.value;
-    }
-    while (temp.right !== null) {
-      temp = temp.right;
-    }
+    // if (temp.value !== null && temp.right === null) {
+    //   return temp.value;
+    // }
+    // while (temp.right !== null) {
+    //   temp = temp.right;
+    // }
 
-    return temp.value;
+    // return temp.value;
   }
 }
 
