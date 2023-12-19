@@ -14,12 +14,13 @@ class Node {
 * Implement simple binary search tree according to task description
 * using Node from extensions
 */
+
 class BinarySearchTree {
 
   constructor() {
     this.rooot = null;
   }
-  
+
 
   root() {
     if (!this.rooot) {
@@ -40,7 +41,7 @@ class BinarySearchTree {
     let root = this.rooot;
 
     while(root) {
-      if (item.value < root.value) {
+      if (item.data < root.data) {
         if (!root.left) {
           root.left = item;
           return;
@@ -58,42 +59,62 @@ class BinarySearchTree {
     }
   }
 
-  has(/* data */) {
+  has(data) {
+    let search = data;
+    
+    console.log(this.rooot);
+    let root = this.rooot;
 
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    if (root.data === null && search !== null) {
+       return false;
+    }
 
-    // let root = this.rooot;
+    if (root.data === search) {
+       return true;
+     }
 
-    // if (root === null && data !== null) {
-    //   return false;
-    // }
+     while (root) {
 
-    // if (root.value === data) {
-    //   return true;
-    // }
+       if (root.data === data) {
+         return true;
+       }
 
-    // while (root) {
+       if (root.data > data) {
+         root = root.left;
+       } else {
+         root = root.right;
+       }
+    }
 
-    //   if (root.value === data) {
-    //     return true;
-    //   }
-
-    //   if (root.value > data) {
-    //     root = root.left;
-    //   } else {
-    //     root = root.right;
-    //   }
-    // }
-
-    // return false;
+    return false;
 
   }
 
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  find(data) {
+    let searchh = data;
+
+    let root = this.rooot;
+
+
+    if (root.data === searchh) {
+       return root;
+     }
+
+     while (root) {
+
+       if (root.data === searchh) {
+         return root;
+       }
+
+       if (root.data > searchh) {
+         root = root.left;
+       } else {
+         root = root.right;
+       }
+    }
+
+    return null;
   }
 
   remove(/* data */) {
@@ -101,35 +122,63 @@ class BinarySearchTree {
     // remove line with error and write your code here
   }
 
+  // remove(data) {
+  //   let root = this.rooot;
+  //       let searchh = data;
+  //       let forRemove = '';
+    
+    
+  //       if (root.data === searchh) {
+  //          forRemove = root;
+  //           console.log(this.rooot)
+  //         root = root.right;
+  //         return this.rooot;
+  //        }
+    
+  //        while (root) {
+    
+  //          if (root.data === searchh) {
+  //            forRemove = root;
+  //          }
+    
+  //          if (root.data > searchh) {
+  //            root = root.left;
+  //          } else {
+  //            root = root.right;
+  //          }
+  //       }
+  //   if (!forRemove.left && !forRemove.right) {
+      
+  //   }
+  // }
+
   min() {
-    throw new NotImplementedError('Not implemented');
-    // let temp = this.rooot;
-    // if (temp.value === null) {
-    //   return null;
-    // }
+    let temp = this.rooot;
+    if (temp.data === null) {
+      return null;
+    }
 
-    // while (temp.left !== null) {
-    //   temp = temp.left;
-    // }
+    while (temp.left !== null) {
+      temp = temp.left;
+    }
 
-    // return temp.value;
+    return temp.data;
   }
 
   max() {
-    throw new NotImplementedError('Not implemented');
-    // let temp = this.root;
-    // if (temp.value === null) {
-    //   return null;
-    // }
+    let temp = this.rooot;
+    if (temp.data === null) {
+      return null;
+    }
 
-    // if (temp.value !== null && temp.right === null) {
-    //   return temp.value;
-    // }
-    // while (temp.right !== null) {
-    //   temp = temp.right;
-    // }
+    if (temp.data !== null && !temp.right) {
+      return temp.data;
+    }
+    while (temp.right !== null) {
+      temp = temp.right;
+    }
 
-    // return temp.value;
+    return temp.data;
   }
 }
 
