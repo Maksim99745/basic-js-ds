@@ -117,40 +117,55 @@ class BinarySearchTree {
     return null;
   }
 
-  remove(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
-
-  // remove(data) {
-  //   let root = this.rooot;
-  //       let searchh = data;
-  //       let forRemove = '';
-    
-    
-  //       if (root.data === searchh) {
-  //          forRemove = root;
-  //           console.log(this.rooot)
-  //         root = root.right;
-  //         return this.rooot;
-  //        }
-    
-  //        while (root) {
-    
-  //          if (root.data === searchh) {
-  //            forRemove = root;
-  //          }
-    
-  //          if (root.data > searchh) {
-  //            root = root.left;
-  //          } else {
-  //            root = root.right;
-  //          }
-  //       }
-  //   if (!forRemove.left && !forRemove.right) {
-      
-  //   }
+  // remove(/* data */) {
+  //   throw new NotImplementedError('Not implemented');
+  //   // remove line with error and write your code here
   // }
+
+  remove(data) {
+    this.rooot = removeNome(this.rooot, data);
+
+    function removeNome(node, data) {
+
+    if (!node) {
+      return null;
+    }
+
+    if (node.data > data) {
+      node.left = removeNome(node.left, data);
+      return node;
+    } else if (node.data < data) {
+      node.right = removeNome(node.right, data);
+      return node;
+    } else {
+      if (!node.left && !node.right) {
+        return null;
+      }
+    }
+
+    if (!node.left) {
+      node = node.right;
+      return node;
+    }
+
+    if (!node.right) {
+      node = node.left
+      return node;
+    }
+
+    let minRight = node.right;
+
+    while (minRight.left) {
+      minRight = minRight.left;
+    }
+
+    node.data = minRight.data;
+
+    node.right = removeNome(node.right, minRight.data);
+
+    return node;
+  }
+}
 
   min() {
     let temp = this.rooot;
